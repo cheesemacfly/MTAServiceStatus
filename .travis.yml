@@ -1,2 +1,4 @@
 language: csharp
 solution: MTAServiceStatus.sln
+script:
+  - nunit-console MTAServiceStatus/Tests/obj/Release/Tests.dll

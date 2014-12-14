@@ -1,6 +1,6 @@
 language: csharp
 install:
   - sudo apt-get install mono-devel mono-gmcs nunit-console
-solution: MTAServiceStatus.sln
 script:
+  - xbuild MTAServiceStatus.sln
   - nunit-console MTAServiceStatus/Tests/obj/Release/Tests.dll

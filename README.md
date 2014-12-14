@@ -4,7 +4,7 @@ Simple C# library to get the latest MTA service status.
 
 ###How?
 
-```
+```C#
 var repo = new MTARepository();
 var status = await repo.GetStatusAsync();
 var goodService = from s in status.subway

@@ -1,31 +1,39 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MTAServiceStatus.Repositories;
+﻿using MTAServiceStatus.Repositories;
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Tests
 {
-    [TestClass]
+    [TestFixture]
     public class MTARepositoryTests
     {
-        [TestMethod]
-        public async Task GetSubwayStatusAsyncTests()
+        [Test]
+        public void GetSubwayStatusAsyncTests()
         {
             var repo = new MTARepository();
-            var result = await repo.GetStatusAsync();
 
-            Assert.IsNotNull(result);
+            Assert.DoesNotThrow(async () =>
+            {
+                var result = await repo.GetStatusAsync();
 
-            Assert.AreNotEqual<int>(0, result.BT.Count);
+                Assert.IsNotNull(result);
 
-            Assert.AreNotEqual<int>(0, result.bus.Count);
+                Assert.IsNotEmpty(result.BT);
 
-            Assert.AreNotEqual<int>(0, result.LIRR.Count);
+                Assert.IsNotEmpty(result.bus);
 
-            Assert.AreNotEqual<int>(0, result.MetroNorth.Count);
+                Assert.IsNotEmpty(result.LIRR);
 
-            Assert.AreNotEqual<int>(0, result.subway.Count);
+                Assert.IsNotEmpty(result.MetroNorth);
 
-            Assert.AreEqual<int>(0, result.responsecode);
+                Assert.IsNotEmpty(result.subway);
+
+                Assert.AreEqual(0, result.responsecode);
+            });
         }
     }
 }

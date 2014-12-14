@@ -9,8 +9,8 @@ Simple C# library to get the latest MTA service status.
 ```C#
 var repo = new MTARepository();
 var status = await repo.GetStatusAsync();
-var goodService = from s in status.subway
-                  where s.status == "GOOD SERVICE"
+var goodService = from s in status.Subway
+                  where s.Status == "GOOD SERVICE"
                   select s;
 
 Console.WriteLine("Currently {0} subway lines with \"GOOD SERVICE\"", goodService.Count());

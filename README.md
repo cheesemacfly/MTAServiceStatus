@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/cheesemacfly/MTAServiceStatus.svg?branch=master)](https://travis-ci.org/cheesemacfly/MTAServiceStatus)
+
 ###What?
 
 Simple C# library to get the latest MTA service status.

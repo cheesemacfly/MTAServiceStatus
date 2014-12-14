@@ -6,16 +6,26 @@ namespace MTAServiceStatus.Models
     [XmlRoot("service")]
     public class Service
     {
-        public int responsecode { get; set; }
-        public string timestamp { get; set; }
+        [XmlElement("responsecode")]
+        public int ResponseCode { get; set; }
+
+        [XmlElement("timestamp")]
+        public string TimeStamp { get; set; }
+
+        [XmlElement("subway")]
         [XmlArrayItem("line")]
-        public List<Line> subway { get; set; }
+        public List<Line> Subway { get; set; }
+
+        [XmlElement("bus")]
         [XmlArrayItem("line")]
-        public List<Line> bus { get; set; }
+        public List<Line> Bus { get; set; }
+
         [XmlArrayItem("line")]
         public List<Line> BT { get; set; }
+
         [XmlArrayItem("line")]
         public List<Line> LIRR { get; set; }
+
         [XmlArrayItem("line")]
         public List<Line> MetroNorth { get; set; }
     }    

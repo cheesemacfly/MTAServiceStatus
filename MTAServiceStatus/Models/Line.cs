@@ -1,11 +1,20 @@
-﻿namespace MTAServiceStatus.Models
+﻿using System.Xml.Serialization;
+
+namespace MTAServiceStatus.Models
 {
     public class Line
     {
-        public string name { get; set; }
-        public string status { get; set; }
-        public string text { get; set; }
+        [XmlElement("name")]
+        public string Name { get; set; }
+
+        [XmlElement("status")]
+        public string Status { get; set; }
+
+        [XmlElement("text")]
+        public string Text { get; set; }
+
         public string Date { get; set; }
+
         public string Time { get; set; }
     }
 }

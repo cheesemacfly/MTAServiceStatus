@@ -24,15 +24,15 @@ namespace Tests
 
                 Assert.IsNotEmpty(result.BT);
 
-                Assert.IsNotEmpty(result.bus);
+                Assert.IsNotEmpty(result.Bus);
 
                 Assert.IsNotEmpty(result.LIRR);
 
                 Assert.IsNotEmpty(result.MetroNorth);
 
-                Assert.IsNotEmpty(result.subway);
+                Assert.IsNotEmpty(result.Subway);
 
-                Assert.AreEqual(0, result.responsecode);
+                Assert.AreEqual(0, result.ResponseCode);
             });
         }
     }

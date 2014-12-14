@@ -27,7 +27,6 @@ namespace MTAServiceStatus.Repositories
         /// <returns>A Service object containing the least updated service status from the MTA</returns>
         /// <exception cref="System.ArgumentNullException"/>
         /// <exception cref="System.InvalidOperationException"/>
-        /// <exception cref="System.InvalidOperationException"/>
         public async Task<Service> GetStatusAsync()
         {
             var client = new HttpClient();

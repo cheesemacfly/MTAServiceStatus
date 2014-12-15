@@ -1,8 +1,8 @@
 language: csharp
-env:
-  - EnableNuGetPackageRestore=true
-install:
-  - sudo apt-get install mono-devel mono-gmcs nunit-console
-script:
-  - xbuild /p:Configuration=Release MTAServiceStatus.sln
+solution: MTAServiceStatus.sln
+before_install:
+  - sudo apt-get install nunit-console
+before_script:
+  - nuget restore MTAServiceStatus.sln
+after_script:
   - nunit-console Tests/bin/Release/Tests.dll

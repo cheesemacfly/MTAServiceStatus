@@ -1,20 +1,25 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace MTAServiceStatus.Models
 {
     public class Line
     {
-        [XmlElement("name")]
         public string Name { get; set; }
-
-        [XmlElement("status")]
-        public string Status { get; set; }
-
-        [XmlElement("text")]
+        public ServiceStatus Status { get; set; }
         public string Text { get; set; }
+        public DateTime Date { get; set; }
+    }
 
-        public string Date { get; set; }
-
-        public string Time { get; set; }
+    public enum ServiceStatus
+    {
+        UNKNOWN,
+        GOOD_SERVICE,
+        PLANNED_WORK,
+        SERVICE_CHANGE,
+        DELAYS
     }
 }

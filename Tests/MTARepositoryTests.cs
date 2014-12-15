@@ -12,13 +12,13 @@ namespace Tests
     public class MTARepositoryTests
     {
         [Test]
-        public void GetSubwayStatusAsyncTests()
+        public void GetRawServiceAsyncTests()
         {
             var repo = new MTARepository();
 
             Assert.DoesNotThrow(async () =>
             {
-                var result = await repo.GetStatusAsync();
+                var result = await repo.GetRawServiceAsync();
 
                 Assert.IsNotNull(result);
 
@@ -33,6 +33,29 @@ namespace Tests
                 Assert.IsNotEmpty(result.Subway);
 
                 Assert.AreEqual(0, result.ResponseCode);
+            });
+        }
+
+        [Test]
+        public void GetServiceAsyncTests()
+        {
+            var repo = new MTARepository();
+
+            Assert.DoesNotThrow(async () =>
+            {
+                var result = await repo.GetServiceAsync();
+
+                Assert.IsNotNull(result);
+
+                Assert.IsNotEmpty(result.BT);
+
+                Assert.IsNotEmpty(result.Bus);
+
+                Assert.IsNotEmpty(result.LIRR);
+
+                Assert.IsNotEmpty(result.MetroNorth);
+
+                Assert.IsNotEmpty(result.Subway);
             });
         }
     }

@@ -11,9 +11,9 @@ or running the command: `PM> Install-Package MTAServiceStatus`
 
 ```C#
 var repo = new MTARepository();
-var status = await repo.GetStatusAsync();
+var status = await repo.GetServiceAsync();
 var goodService = from s in status.Subway
-                  where s.Status == "GOOD SERVICE"
+                  where s.Status == ServiceStatus.GOOD_SERVICE
                   select s;
 
 Console.WriteLine("Currently {0} subway lines with \"GOOD SERVICE\"", goodService.Count());

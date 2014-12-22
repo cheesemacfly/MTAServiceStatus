@@ -48,10 +48,13 @@
   <ItemGroup>
     <Compile Include="Configs\AutoMapperConfig.cs" />
     <Compile Include="Extensions\XmlSerializerExtensions.cs" />
-    <Compile Include="Models\Line.cs" />
-    <Compile Include="Models\RawLine.cs" />
-    <Compile Include="Models\RawService.cs" />
-    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\Api\Line.cs" />
+    <Compile Include="Models\Api\RawLine.cs" />
+    <Compile Include="Models\Api\RawService.cs" />
+    <Compile Include="Models\Api\Service.cs" />
+    <Compile Include="Models\ServiceStatus.cs" />
+    <Compile Include="Models\SubwayLine.cs" />
+    <Compile Include="MTASubwayStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\MTARepository.cs" />
     <Compile Include="Resolvers\LineDateTimeResolver.cs" />

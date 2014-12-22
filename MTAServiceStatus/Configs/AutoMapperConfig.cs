@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MTAServiceStatus.Models;
+using MTAServiceStatus.Models.Api;
 using MTAServiceStatus.Resolvers;
 using System;
 using System.Collections.Generic;

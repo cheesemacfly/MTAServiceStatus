@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace MTAServiceStatus.Models
+namespace MTAServiceStatus.Models.Api
 {
     public class RawLine
     {

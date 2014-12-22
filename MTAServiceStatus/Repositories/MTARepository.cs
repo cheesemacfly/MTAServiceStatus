@@ -1,4 +1,4 @@
-﻿using MTAServiceStatus.Models;
+﻿using MTAServiceStatus.Models.Api;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -39,7 +39,7 @@ namespace MTAServiceStatus.Repositories
 
             var result = await client.SendAsync(request);
 
-            if(result.IsSuccessStatusCode)
+            if (result.IsSuccessStatusCode)
             {
                 var content = await result.Content.ReadAsStringAsync();
                 var document = XDocument.Parse(content);
@@ -50,7 +50,7 @@ namespace MTAServiceStatus.Repositories
                 return service;
             }
 
-            return null;
+            throw new HttpRequestException("API unavailable. Please try again later.");
         }
 
         /// <summary>
@@ -64,12 +64,7 @@ namespace MTAServiceStatus.Repositories
         {
             var rawService = await GetRawServiceAsync();
 
-            if(null != rawService)
-            {
-                return Mapper.Map<Service>(rawService);
-            }
-
-            return null;
+            return Mapper.Map<Service>(rawService);
         }
     }
 }

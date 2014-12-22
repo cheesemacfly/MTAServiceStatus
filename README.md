@@ -9,13 +9,34 @@ or running the command: `PM> Install-Package MTAServiceStatus`
 
 ###How?
 
+If you need to get the status per subway line, you can use the [`MTASubwayStatus`](MTAServiceStatus/MTASubwayStatus.cs) class.
+
+```C#
+var status = new MTASubwayStatus();
+var lines = await status.GetLinesAsync();
+foreach(var line in lines)
+{
+	Console.WriteLine("Line {0} current status: {1}", line.Name, line.Status);
+}
+// Displays:
+// Line 1 current status: GOOD_SERVICE
+// Line 2 current status: DELAYS
+// Line A current status: PLANNED_WORK
+```
+
+If you are looking for buses or other trains, you have to use the [`MTARepository`](MTAServiceStatus/Repositories/MTARepository.cs) class:
+
 ```C#
 var repo = new MTARepository();
 var status = await repo.GetServiceAsync();
-var goodService = from s in status.Subway
+var goodService = from s in status.Bus
                   where s.Status == ServiceStatus.GOOD_SERVICE
                   select s;
 
-Console.WriteLine("Currently {0} subway lines with \"GOOD SERVICE\"", goodService.Count());
-//Displays "Currently 4 subway lines with "GOOD SERVICE""
+Console.WriteLine("Currently {0} bus line groups with \"GOOD SERVICE\"", goodService.Count());
+//Displays "Currently 4 bus line groups with "GOOD SERVICE""
 ```
+
+Available groups available through this class are: `BT`, `Bus`, `LIRR`, `MetroNorth` and `Subway`.  
+
+I am planning on getting the same process used for subway (per line status versus per group) applied to the other groups in a later release.

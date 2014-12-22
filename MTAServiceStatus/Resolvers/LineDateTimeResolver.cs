@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using MTAServiceStatus.Models;
+using MTAServiceStatus.Models.Api;
 using System;
 using System.Collections.Generic;
 using System.Linq;

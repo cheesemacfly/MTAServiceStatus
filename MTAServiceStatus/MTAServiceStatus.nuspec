@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/cheesemacfly/MTAServiceStatus</projectUrl>
     <licenseUrl>https://github.com/cheesemacfly/MTAServiceStatus/blob/master/LICENSE</licenseUrl>
     <description>$description$</description>
-    <releaseNotes>Service is now returned after being Mapped to a more specific object. Raw data is still available with GetRawServiceAsync().</releaseNotes>
+    <releaseNotes>Subway data is now available per line.</releaseNotes>
     <tags>MTA NYC New York City Subway</tags>
   </metadata>
 </package>

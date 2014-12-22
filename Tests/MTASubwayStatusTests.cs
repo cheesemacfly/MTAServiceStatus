@@ -20,6 +20,8 @@ namespace Tests
 
             Assert.DoesNotThrow(async () =>
             {
+                var lines = await status.GetLinesAsync();
+
                 Assert.IsNotNull(lines);
 
                 Assert.IsNotEmpty(lines);

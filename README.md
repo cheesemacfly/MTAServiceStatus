@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/cheesemacfly/MTAServiceStatus.svg?branch=master)](https://travis-ci.org/cheesemacfly/MTAServiceStatus)
 [![Build status](https://ci.appveyor.com/api/projects/status/g03ekujid04nep5m/branch/master?svg=true)](https://ci.appveyor.com/project/cheesemacfly/mtaservicestatus/branch/master)
+[![NuGet](https://img.shields.io/nuget/v/MTAServiceStatus.svg)](https://www.nuget.org/packages/MTAServiceStatus)
 
 ###What?
 

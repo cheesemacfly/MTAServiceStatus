@@ -12,6 +12,7 @@ namespace MTAServiceStatus.Models
         GOOD_SERVICE,
         PLANNED_WORK,
         SERVICE_CHANGE,
-        DELAYS
+        DELAYS,
+        SUSPENDED
     }
 }

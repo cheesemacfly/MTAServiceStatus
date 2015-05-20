@@ -9,7 +9,7 @@
     <projectUrl>https://github.com/cheesemacfly/MTAServiceStatus</projectUrl>
     <licenseUrl>https://github.com/cheesemacfly/MTAServiceStatus/blob/master/LICENSE</licenseUrl>
     <description>$description$</description>
-    <releaseNotes>Subway data is now available per line.</releaseNotes>
+    <releaseNotes>SUSPENDED is now a status.</releaseNotes>
     <tags>MTA NYC New York City Subway</tags>
   </metadata>
 </package>

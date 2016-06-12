@@ -1,18 +1,14 @@
-﻿using AutoMapper;
-using MTAServiceStatus.Models;
+﻿using MTAServiceStatus.Models;
 using MTAServiceStatus.Repositories;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace MTAServiceStatus
 {
     public class MTASubwayStatus
     {
-        private readonly string[] SubwayNames = new[] { "1", "2", "3", "A", "C", "E", "B", "D", "F", "M", "G", "J", "Z", "L", "N", "Q", "R", "S", "SIR" };
+        private readonly string[] SubwayNames = new[] { "1", "2", "3", "4", "5", "6", "A", "C", "E", "B", "D", "F", "M", "G", "J", "Z", "L", "N", "Q", "R", "S", "SIR" };
         private readonly MTARepository _repo;
 
         /// <summary>

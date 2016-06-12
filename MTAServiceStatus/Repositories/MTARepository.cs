@@ -1,12 +1,12 @@
-﻿using MTAServiceStatus.Models.Api;
+﻿using AutoMapper;
+using MTAServiceStatus.Configs;
+using MTAServiceStatus.Extensions;
+using MTAServiceStatus.Models.Api;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml.Serialization;
-using MTAServiceStatus.Extensions;
-using AutoMapper;
-using MTAServiceStatus.Configs;
 
 namespace MTAServiceStatus.Repositories
 {

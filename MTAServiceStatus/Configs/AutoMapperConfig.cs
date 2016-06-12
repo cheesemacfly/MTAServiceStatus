@@ -1,12 +1,7 @@
 ﻿using AutoMapper;
-using MTAServiceStatus.Models;
 using MTAServiceStatus.Models.Api;
 using MTAServiceStatus.Resolvers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MTAServiceStatus.Configs
 {

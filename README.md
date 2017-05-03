@@ -2,13 +2,13 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/g03ekujid04nep5m/branch/master?svg=true)](https://ci.appveyor.com/project/cheesemacfly/mtaservicestatus/branch/master)
 [![NuGet](https://img.shields.io/nuget/v/MTAServiceStatus.svg)](https://www.nuget.org/packages/MTAServiceStatus)
 
-###What?
+### What?
 
 Simple C# library to get the latest MTA service status.  
 Available as a nuget package here: https://www.nuget.org/packages/MTAServiceStatus  
 or running the command: `PM> Install-Package MTAServiceStatus`
 
-###How?
+### How?
 
 If you need to get the status per subway line, you can use the [`MTASubwayStatus`](MTAServiceStatus/MTASubwayStatus.cs) class.
 

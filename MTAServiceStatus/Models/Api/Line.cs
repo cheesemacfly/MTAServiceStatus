@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MTAServiceStatus.Models.Api
+namespace MTAServiceStatus.Models
 {
     public class Line
     {

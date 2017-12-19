@@ -1,21 +1,20 @@
 ﻿using AutoMapper;
 using MTAServiceStatus.Models;
-using MTAServiceStatus.Models.Api;
 using System;
 
 namespace MTAServiceStatus.Resolvers
 {
-    class ServiceStatusResolver : ValueResolver<RawLine, ServiceStatus>
+    internal sealed class ServiceStatusResolver : IValueResolver<RawLine, Line, ServiceStatus>
     {
-        protected override ServiceStatus ResolveCore(RawLine source)
+        public ServiceStatus Resolve(RawLine source, Line destination, ServiceStatus destMember, ResolutionContext context)
         {
-            if(!string.IsNullOrWhiteSpace(source.Status))
+            if (!string.IsNullOrWhiteSpace(source.Status))
             {
                 string status = source.Status.Replace(" ", "_").ToUpper();
                 return (ServiceStatus)Enum.Parse(typeof(ServiceStatus), status);
             }
 
-            return ServiceStatus.UNKNOWN;
+            return ServiceStatus.NONE;
         }
     }
 }

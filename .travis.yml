@@ -1,6 +1,10 @@
 language: csharp
 mono: none
 dotnet: 2.0.0
+
+install:
+- dotnet restore
+
 script:
- - dotnet restore
  - dotnet build
+ - dotnet test MTAServiceStatus.Tests/MTAServiceStatus.Tests.csproj

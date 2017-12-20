@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Authors>Cheesemacfly</Authors>
+    <Product>MTAServiceStatus</Product>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Description>Get the latest New York City MTA service status</Description>
+    <PackageLicenseUrl>https://github.com/cheesemacfly/MTAServiceStatus/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/cheesemacfly/MTAServiceStatus</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

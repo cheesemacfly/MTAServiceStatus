@@ -1,63 +1,63 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using Xunit;
 
 namespace MTAServiceStatus.Tests
 {
-    [TestClass]
     public class IntegrationTests
     {
-        [TestMethod]
+
+        [Fact(DisplayName = "Get Lines")]
         public async Task GetLinesAsyncTests()
         {
             var status = new MTASubwayStatus();
 
             var lines = await status.GetLinesAsync();
 
-            Assert.IsNotNull(lines);
+            Assert.NotNull(lines);
 
-            Assert.AreNotEqual(0, lines.Count);
+            Assert.NotEmpty(lines);
         }
 
-        [TestMethod]
+        [Fact(DisplayName = "Get Raw Service")]
         public async Task GetRawServiceAsyncTests()
         {
             var repo = new MTARepository();
 
             var result = await repo.GetRawServiceAsync();
 
-            Assert.IsNotNull(result);
+            Assert.NotNull(result);
 
-            Assert.AreNotEqual(0, result.BT.Count);
+            Assert.NotEmpty(result.BT);
 
-            Assert.AreNotEqual(0, result.Bus.Count);
+            Assert.NotEmpty(result.Bus);
 
-            Assert.AreNotEqual(0, result.LIRR.Count);
+            Assert.NotEmpty(result.LIRR);
 
-            Assert.AreNotEqual(0, result.MetroNorth.Count);
+            Assert.NotEmpty(result.MetroNorth);
 
-            Assert.AreNotEqual(0, result.Subway.Count);
+            Assert.NotEmpty(result.Subway);
 
-            Assert.AreEqual(0, result.ResponseCode);
+            Assert.Equal(0, result.ResponseCode);
         }
 
-        [TestMethod]
+        [Fact(DisplayName = "Get Service")]
         public async Task GetServiceAsyncTests()
         {
             var repo = new MTARepository();
 
             var result = await repo.GetServiceAsync();
 
-            Assert.IsNotNull(result);
+            Assert.NotNull(result);
 
-            Assert.AreNotEqual(0, result.BT.Count);
+            Assert.NotEmpty(result.BT);
 
-            Assert.AreNotEqual(0, result.Bus.Count);
+            Assert.NotEmpty(result.Bus);
 
-            Assert.AreNotEqual(0, result.LIRR.Count);
+            Assert.NotEmpty(result.LIRR);
 
-            Assert.AreNotEqual(0, result.MetroNorth.Count);
+            Assert.NotEmpty(result.MetroNorth);
 
-            Assert.AreNotEqual(0, result.Subway.Count);
+            Assert.NotEmpty(result.Subway);
         }
     }
 }

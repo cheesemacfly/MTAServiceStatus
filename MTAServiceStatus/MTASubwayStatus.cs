@@ -1,12 +1,11 @@
 ﻿using MTAServiceStatus.Models;
-using MTAServiceStatus.Repositories;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MTAServiceStatus
 {
-    public class MTASubwayStatus
+    public sealed class MTASubwayStatus
     {
         private readonly string[] SubwayNames = new[] { "1", "2", "3", "4", "5", "6", "A", "C", "E", "B", "D", "F", "M", "G", "J", "Z", "L", "N", "Q", "R", "S", "SIR" };
         private readonly MTARepository _repo;
@@ -41,14 +40,14 @@ namespace MTAServiceStatus
             {
                 var line = service.Subway.OrderBy(s => s.Name).FirstOrDefault(s => s.Name.Contains(name));
 
-                var subwayLine = new SubwayLine 
-                { 
-                    Name = name, 
-                    Status = null == line ? 
-                        ServiceStatus.UNKNOWN : line.Text.Contains(string.Format("[{0}]", name)) ? 
+                var subwayLine = new SubwayLine
+                {
+                    Name = name,
+                    Status = null == line ?
+                        ServiceStatus.NONE : line.Text.Contains(string.Format("[{0}]", name)) ?
                             line.Status : ServiceStatus.GOOD_SERVICE
                 };
-                
+
                 result.Add(subwayLine);
             }
 

@@ -1,18 +1,18 @@
 ﻿using AutoMapper;
-using MTAServiceStatus.Configs;
-using MTAServiceStatus.Extensions;
-using MTAServiceStatus.Models.Api;
+using MTAServiceStatus.Models;
+using MTAServiceStatus.Resolvers;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
-namespace MTAServiceStatus.Repositories
+namespace MTAServiceStatus
 {
-    public class MTARepository
+    public sealed class MTARepository
     {
         private readonly Uri _baseUri;
+        private readonly IConfigurationProvider _mapperConfiguration;
 
         /// <summary>
         /// Create a new MTARepository
@@ -20,8 +20,16 @@ namespace MTAServiceStatus.Repositories
         /// <param name="baseUrl">Url for the service status</param>
         public MTARepository(string baseUrl = "http://web.mta.info/status/serviceStatus.txt")
         {
+            _mapperConfiguration = new MapperConfiguration(config =>
+            {
+                config.CreateMap<RawService, Service>()
+                    .ForMember(dest => dest.TimeStamp, opt => opt.MapFrom(s => DateTime.Parse(s.TimeStamp)));
+                config.CreateMap<RawLine, Line>()
+                    .ForMember(dest => dest.Status, opt => opt.ResolveUsing<ServiceStatusResolver>())
+                    .ForMember(dest => dest.Date, opt => opt.ResolveUsing<LineDateTimeResolver>());
+            });
+
             _baseUri = new Uri(baseUrl);
-            AutoMapperConfig.CreateMaps();
         }
 
         /// <summary>
@@ -30,8 +38,8 @@ namespace MTAServiceStatus.Repositories
         /// To obtain converted data, call GetServiceAsync()
         /// </summary>
         /// <returns>A RawService object containing the latest updated service status from the MTA</returns>
-        /// <exception cref="System.ArgumentNullException"/>
-        /// <exception cref="System.InvalidOperationException"/>
+        /// <exception cref="ArgumentNullException"/>
+        /// <exception cref="InvalidOperationException"/>
         public async Task<RawService> GetRawServiceAsync()
         {
             var client = new HttpClient();
@@ -57,14 +65,15 @@ namespace MTAServiceStatus.Repositories
         /// Get the current service status from the MTA website. 
         /// </summary>
         /// <returns>A Service object containing the latest updated service status from the MTA</returns>
-        /// <exception cref="System.ArgumentNullException"/>
-        /// <exception cref="System.InvalidOperationException"/>
-        /// <exception cref="AutoMapper.AutoMapperMappingException"/>
+        /// <exception cref="ArgumentNullException"/>
+        /// <exception cref="InvalidOperationException"/>
+        /// <exception cref="AutoMapperMappingException"/>
         public async Task<Service> GetServiceAsync()
         {
+            var mapper = _mapperConfiguration.CreateMapper();
             var rawService = await GetRawServiceAsync();
 
-            return Mapper.Map<Service>(rawService);
+            return mapper.Map<Service>(rawService);
         }
     }
 }

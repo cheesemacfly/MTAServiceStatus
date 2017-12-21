@@ -2,7 +2,7 @@
 {
     public enum ServiceStatus
     {
-        UNKNOWN,
+        NONE,
         GOOD_SERVICE,
         PLANNED_WORK,
         SERVICE_CHANGE,

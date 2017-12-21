@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace MTAServiceStatus.Models.Api
+namespace MTAServiceStatus.Models
 {
     [XmlRoot("service")]
     public class RawService
@@ -28,5 +28,5 @@ namespace MTAServiceStatus.Models.Api
         [XmlArray("subway")]
         [XmlArrayItem("line")]
         public List<RawLine> Subway { get; set; }
-    }    
+    }
 }

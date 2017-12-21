@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MTAServiceStatus.Models.Api
+namespace MTAServiceStatus.Models
 {
     public class Service
     {

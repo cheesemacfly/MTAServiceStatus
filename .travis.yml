@@ -1,8 +1,10 @@
 language: csharp
-solution: MTAServiceStatus.sln
-before_install:
-  - sudo apt-get install nunit-console
-before_script:
-  - nuget restore MTAServiceStatus.sln
-after_script:
-  - nunit-console Tests/bin/Release/Tests.dll
+mono: none
+dotnet: 2.0.0
+
+install:
+- dotnet restore
+
+script:
+ - dotnet build
+ - dotnet test MTAServiceStatus.Tests/MTAServiceStatus.Tests.csproj
